@@ -3,20 +3,57 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
+<title>Vice Cover Studio — Vice Heat</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
+<header class="top">
+  <div class="brand">
+    <h1>VICE COVER STUDIO</h1>
+    <p>Turn your crew's photos into a GTA-style movie poster. Nothing leaves your device.</p>
+  </div>
+  <div class="top-badge">VOL. 02 · VICE HEAT</div>
+</header>
+<main class="studio">
+  <aside class="rail" aria-label="Studio controls">
+    <section class="group">
+      <h2>1 · Words</h2>
+      <label>Title <input id="title" type="text" maxlength="24" value="VICE HEAT"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="40" value="Kings of the Coast"></label>
+      <label>Tagline <input id="tagline" type="text" maxlength="60" value="SEVEN LIVES · ONE COAST · NO WAY BACK"></label>
+      <label>Press quote <input id="quote" type="text" maxlength="48" value="A FEVER DREAM IN NEON"></label>
+    </section>
+    <section class="group">
+      <h2>2 · Grade</h2>
+      <div id="grades" class="chips"></div>
+    </section>
+    <section class="group">
+      <h2>3 · Layout</h2>
+      <div id="layouts" class="chips"></div>
+    </section>
+    <section class="group">
+      <h2>4 · Panels — click one to edit it</h2>
+      <div id="panel-list"></div>
+      <p class="selected-label">Editing: <strong id="selected-role">THE DRIVER</strong></p>
+      <label class="file-label">Photo for this panel <input id="panel-photo" type="file" accept="image/*"></label>
+      <label class="file-label">One photo for all panels <input id="fill-all" type="file" accept="image/*"></label>
+      <button id="sample-crew" type="button" class="ghost">Load sample crew</button>
+      <label>Zoom <input id="zoom" type="range" min="1" max="2" step="0.01" value="1"></label>
+      <label>Pan left–right <input id="pan-x" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <label>Pan up–down <input id="pan-y" type="range" min="-0.5" max="0.5" step="0.01" value="0"></label>
+      <button id="reset-crop" type="button" class="ghost">Reset crop</button>
+    </section>
+    <section class="group">
+      <h2>5 · Export</h2>
+      <div id="sizes" class="chips"></div>
+      <button id="export" type="button" class="primary">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+  </aside>
+  <section class="preview" aria-label="Live poster preview">
+    <canvas id="poster" width="1920" height="1080" aria-label="The Vice Heat poster"></canvas>
+    <p class="hint">Live preview — click a panel on the poster to edit it, or pick it from the list.</p>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
 </main>
 <script type="module" src="./src/main.js"></script>
 </body>

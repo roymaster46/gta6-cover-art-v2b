@@ -16,6 +16,11 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-app.ts';
 
+// Vice Cover Studio v2: a starter-based movie-poster studio — seven panels,
+// a chrome title, four sunset grades, two layouts and three export sizes.
+const STUDIO_NAME = 'Vice Cover Studio v2';
+console.log(`${STUDIO_NAME}: handing in app/ and screenshots/`);
+
 const here = fileURLToPath(new URL('.', import.meta.url));
 const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
